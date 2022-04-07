@@ -24,23 +24,20 @@ Bitcoin HD Micro-Wallet is an API server that allows a user to:
 ---
 ## 🚀 Quick Start
 
-### Install dependencies
+### 1. Install dependencies
 
 ```bash
 $ npm install
 ```
-### Start deveopment server
+### 2. Start deveopment server
 ```bash
 $ npm run dev
 ```
-### Access API Server
-```
-http://localhost:3000/
-```
-### Swagger API Documentation
-```
-http://localhost:3000/api-docs
-```
+### 3. Access API Server
+[http://localhost:3000](http://localhost:3000)
+
+### 4. Swagger API Documentation
+[http://localhost:3000/api-docs](http://localhost:3000/api-docs)
 
 ---
 ## 🛎 Available Commands for the Server
