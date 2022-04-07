@@ -17,7 +17,7 @@ class AddressService {
     const { address } = bitcoin.payments.p2wpkh({
       pubkey: child.publicKey,
     });
-    const generateHDSegWitAddressData: Address = { address: address};
+    const generateHDSegWitAddressData: Address = { address: address };
     return generateHDSegWitAddressData;
   }
 
@@ -32,7 +32,7 @@ class AddressService {
     const { address } = bitcoin.payments.p2sh({
       redeem: bitcoin.payments.p2ms({ m: reqData.m, pubkeys: publicKeysBuffer }),
     });
-    const generateP2SHAddressData: Address = { address: address};
+    const generateP2SHAddressData: Address = { address: address };
     return generateP2SHAddressData;
   }
 }

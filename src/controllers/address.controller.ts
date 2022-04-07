@@ -10,9 +10,9 @@ export class AddressController {
   public addressService = new addressService();
 
   @Post('/address/segwit')
-  @OpenAPI({ 
-    summary: 'Generate a HD SegWit address.', 
-    description: 'Returns a Hierarchical Deterministic (HD) Segregated Witness (SegWit) bitcoin address from a given seed and path.', 
+  @OpenAPI({
+    summary: 'Generate a HD SegWit address.',
+    description: 'Returns a Hierarchical Deterministic (HD) Segregated Witness (SegWit) bitcoin address from a given seed and path.',
   })
   @UseBefore(validationMiddleware(GenerateHDSegWitAddressDto, 'body'))
   async generateSegWitAddress(@Body() reqData: GenerateHDSegWitAddressDto) {
