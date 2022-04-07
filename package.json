@@ -1,6 +1,6 @@
 {
   "name": "micro-wallet",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "TypeScript + Express + Routing Controllers API Server",
   "author": "",
   "license": "ISC",
@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "bitcoinjs-lib": "^6.0.1",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
     "class-validator-jsonschema": "^3.0.2",
@@ -33,6 +34,7 @@
     "reflect-metadata": "^0.1.13",
     "routing-controllers": "^0.9.0",
     "routing-controllers-openapi": "^3.0.0",
+    "supertest": "^6.2.2",
     "swagger-ui-express": "^4.1.6",
     "winston": "^3.3.3",
     "winston-daily-rotate-file": "^4.5.5"

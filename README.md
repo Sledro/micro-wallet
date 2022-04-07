@@ -5,16 +5,10 @@
 </h1>
 
 <h4 align="center">🚀 Bitcoin HD SegWit Address & P2SH Multisignature Generator</h4>
-
+<br>
 <p align="center">
-    <a href="http://npm.im/typescript-express-starter" target="_blank">
-      <img src="https://img.shields.io/npm/v/typescript-express-starter.svg" alt="npm Version" />
-    </a>
-    <a href="http://npm.im/typescript-express-starter" target="_blank">
+    <a href="#" target="_blank">
       <img src="https://img.shields.io/npm/l/typescript-express-starter.svg" alt="npm Package License" />
-    </a>
-    <a href="http://npm.im/typescript-express-starter" target="_blank">
-      <img src="https://img.shields.io/npm/dm/typescript-express-starter.svg" alt="npm Downloads" />
     </a>
 </p>
 
@@ -22,7 +16,7 @@
 
 ## 😎 Introducing The Project
 
-Bitcoin HD Micro-Wallet is an API server that allows a user to generate:
+Bitcoin HD Micro-Wallet is an API server that allows a user to:
 
 1. Generate a Hierarchical Deterministic (HD) Segregated Witness (SegWit) bitcoin address from a given seed and path 
 2. Generate an n-out-of-m Multisignature (multi-sig) Pay-To-Script-Hash (P2SH) bitcoin address, where n, m and addresses can be specified 
@@ -74,27 +68,27 @@ http://localhost:3000/api-docs
 │   │
 │   ├── /controllers
 │   │   ├── index.controller.ts
-│   │   └── wallet.controller.ts
+│   │   └── address.controller.ts
 │   │
 │   ├── /dtos
-│   │   └── wallet.dto.ts
+│   │   └── address.dto.ts
 │   │
 │   ├── /exceptions
 │   │   └── HttpException.ts
 │   │
 │   ├── /interfaces
-│   │   └── wallet.interface.ts
+│   │   └── address.interface.ts
 │   │
 │   ├── /middlewares
 │   │   ├── error.middleware.ts
 │   │   └── validation.middleware.ts
 │   │
 │   ├── /services
-│   │   └── wallet.service.ts
+│   │   └── address.service.ts
 │   │
 │   ├── /tests
 │   │   ├── index.test.ts
-│   │   └── wallet.test.ts
+│   │   └── address.test.ts
 │   │
 │   ├── /utils
 │   │   ├── logger.ts
