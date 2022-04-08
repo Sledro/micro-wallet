@@ -35,10 +35,40 @@ $ npm run dev
 ```
 ### 3. Access API Server
 [http://localhost:3000](http://localhost:3000)
+<br>
+<br>
 
 ### 4. Swagger API Documentation
 [http://localhost:3000/api-docs](http://localhost:3000/api-docs)
+<br>
+<br>
 
+### 6. Example cURL POST /address/segwit
+
+```
+curl --location --request POST "http://127.0.0.1:3000/address/segwit" \
+--header "Content-Type: application/json" \
+--data-raw "{
+    \"seed\": \"414583e964a2cf7473c44942712381a8e08817115488c9138b6eebe04030b8f000accafe893a6af8782d3f9612cb8c0d6ff893b6208f5a050a841b2fcb840faf\",
+    \"path\": \"m/44'/0'/0'/0/0\"
+}"
+```
+
+### 7. Example cURL POST /address/multisig
+
+```
+curl --location --request POST "http://127.0.0.1:3000/address/multisig" \
+--header "Content-Type: application/json" \
+--data-raw "{
+    \"m\": 2,
+    \"n\": 8,
+    \"publicKeys\": [
+        \"026477115981fe981a6918a6297d9803c4dc04f328f22041bedff886bbc2962e01\",
+        \"02c96db2302d19b43d4c69368babace7854cc84eb9e061cde51cfa77ca4a22b8b9\",
+        \"03c6103b3b83e4a24a0e33a4df246ef11772f9992663db0c35759a5e2ebf68d8e9\"
+    ]
+}"
+```
 ---
 ## 🛎 Available Commands for the Server
 
