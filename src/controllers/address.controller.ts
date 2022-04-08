@@ -27,7 +27,7 @@ export class AddressController {
   })
   @UseBefore(validationMiddleware(GenerateP2SHAddressDto, 'body'))
   async generateP2SHAddress(@Body() reqData: GenerateP2SHAddressDto) {
-    const response: Address = await this.addressService.generateP2SHAddress(reqData);
+    const response: string | Address = await this.addressService.generateP2SHAddress(reqData);
     return response;
   }
 }

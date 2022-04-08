@@ -26,11 +26,17 @@ class AddressService {
    * @param reqData - GenerateP2SHAddressDto
    * @returns Address interface
    */
-  public async generateP2SHAddress(reqData: GenerateP2SHAddressDto): Promise<Address> {
+  public async generateP2SHAddress(reqData: GenerateP2SHAddressDto): Promise<string | Address> {
+    if (reqData.publicKeys.length != reqData.m) {
+      return "m must be the same value as the number of provided keys"
+    }
+    if (reqData.n > reqData.m) {
+      return "n must be less than or equal to m"
+    }
     const publicKeysBuffer: Buffer[] = reqData.publicKeys.map(hex => Buffer.from(hex, 'hex'));
     // P2SH, pay-to-multisig (n-of-m) address
     const { address } = bitcoin.payments.p2sh({
-      redeem: bitcoin.payments.p2ms({ m: reqData.m, pubkeys: publicKeysBuffer }),
+      redeem: bitcoin.payments.p2ms({ m: reqData.n, pubkeys: publicKeysBuffer }),
     });
     const generateP2SHAddressData: Address = { address: address };
     return generateP2SHAddressData;

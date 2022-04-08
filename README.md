@@ -21,6 +21,8 @@ Bitcoin HD Micro-Wallet is an API server that allows a user to:
 1. Generate a Hierarchical Deterministic (HD) Segregated Witness (SegWit) bitcoin address from a given seed and path 
 2. Generate an n-out-of-m Multisignature (multi-sig) Pay-To-Script-Hash (P2SH) bitcoin address, where n, m and addresses can be specified 
 
+Production server should use SSL to encrypt API data and prevent network sniffing attacks.
+
 ---
 ## 🚀 Quick Start
 

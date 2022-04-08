@@ -1,4 +1,4 @@
-import { IsNumber, IsString, IsPositive, IsNotEmpty, IsHexadecimal, Matches, Length, IsArray } from 'class-validator';
+import { IsNumber, IsString, IsPositive, IsNotEmpty, IsHexadecimal, Matches, Length, IsArray, Min } from 'class-validator';
 
 // Request used to create HD SegWit Address
 export class GenerateHDSegWitAddressDto {
@@ -22,12 +22,12 @@ export class GenerateHDSegWitAddressDto {
 export class GenerateP2SHAddressDto {
   @IsNumber()
   @IsPositive()
-  // N to indicate how many public keys there are
+  // n to indicate how many signatures are required
   public n: number;
 
   @IsNumber()
   @IsPositive()
-  // M to indicate how many signatures are required
+  // m to indicate how many public keys there are
   public m: number;
 
   @IsNotEmpty()
