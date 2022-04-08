@@ -12,7 +12,7 @@ export class GenerateHDSegWitAddressDto {
   @IsString()
   @IsNotEmpty()
   @Matches(/^m\/\d\d\'\/\d'\/\d'\/\d\/\d$/, {
-    message: `Derivation path must be in the format of BIP32Path eg. m/44'/0'/0'/0/0`,
+    message: `derivation path must be in the format of BIP32Path eg. m/44'/0'/0'/0/0`,
   })
   // Derivation path
   public path: string;

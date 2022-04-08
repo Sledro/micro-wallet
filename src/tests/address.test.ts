@@ -85,7 +85,7 @@ describe('Testing Address', () => {
       return request(app.getServer())
         .post(`/address/segwit`)
         .send(data)
-        .expect(400, { message: `Derivation path must be in the format of BIP32Path eg. m/44'/0'/0'/0/0` });
+        .expect(400, { message: "derivation path must be in the format of BIP32Path eg. m/44'/0'/0'/0/0" });
     });
 
     it('returns an error as path is empty', () => {
@@ -99,7 +99,7 @@ describe('Testing Address', () => {
       return request(app.getServer())
         .post(`/address/segwit`)
         .send(data)
-        .expect(400, { message: `Derivation path must be in the format of BIP32Path eg. m/44'/0'/0'/0/0,path should not be empty` });
+        .expect(400, { message: "derivation path must be in the format of BIP32Path eg. m/44'/0'/0'/0/0,path should not be empty" });
     });
 
     it('returns multiple validation errors', () => {
@@ -107,9 +107,10 @@ describe('Testing Address', () => {
 
       const data: object = {};
 
-      return request(app.getServer()).post(`/address/segwit`).send(data).expect(400, {
-        message: `seed must be longer than or equal to 128 characters,seed must be a hexadecimal number,seed should not be empty,seed must be a string, Derivation path must be in the format of BIP32Path eg. m/44'/0'/0'/0/0,path should not be empty,path must be a string`,
-      });
+      return request(app.getServer())
+        .post(`/address/segwit`)
+        .send(data)
+        .expect(400, { message: "seed must be longer than or equal to 128 characters,seed must be a hexadecimal number,seed should not be empty,seed must be a string, derivation path must be in the format of BIP32Path eg. m/44'/0'/0'/0/0,path should not be empty,path must be a string" });
     });
   });
 });
@@ -131,7 +132,10 @@ describe('Testing MultiSig Address', () => {
         ],
       };
 
-      return request(app.getServer()).post(`/address/multisig`).send(data).expect(200, { address: '36NUkt6FWUi3LAWBqWRdDmdTWbt91Yvfu7' });
+      return request(app.getServer())
+        .post(`/address/multisig`)
+        .send(data)
+        .expect(200, { address: '36NUkt6FWUi3LAWBqWRdDmdTWbt91Yvfu7' });
     });
 
     it('returns an error as n value is empty', () => {
@@ -178,7 +182,7 @@ describe('Testing MultiSig Address', () => {
       const data: object = {
         n: 2,
         m: 3,
-        publicKeys: "",
+        publicKeys: '',
       };
 
       return request(app.getServer())
@@ -187,5 +191,23 @@ describe('Testing MultiSig Address', () => {
         .expect(400, { message: 'each value in publicKeys must be a hexadecimal number,publicKeys must be an array,publicKeys should not be empty' });
     });
 
+    it('returns an error as n > m', () => {
+      const app = new App([AddressController]);
+
+      const data: object = {
+        n: 5,
+        m: 3,
+        publicKeys: [
+          '026477115981fe981a6918a6297d9803c4dc04f328f22041bedff886bbc2962e01',
+          '02c96db2302d19b43d4c69368babace7854cc84eb9e061cde51cfa77ca4a22b8b9',
+          '03c6103b3b83e4a24a0e33a4df246ef11772f9992663db0c35759a5e2ebf68d8e9',
+        ],
+      };
+
+      return request(app.getServer())
+        .post(`/address/multisig`)
+        .send(data)
+        .expect(400, { message:"n must be less than or equal to m"} );
+    });
   });
 });

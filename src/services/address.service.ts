@@ -2,6 +2,7 @@ import * as bitcoin from 'bitcoinjs-lib';
 import * as bip32 from 'bip32';
 import { GenerateP2SHAddressDto, GenerateHDSegWitAddressDto } from '@/dtos/address.dto';
 import { Address } from '@interfaces/address.interface';
+import { HttpException } from '@exceptions/HttpException';
 
 class AddressService {
   /**
@@ -26,12 +27,12 @@ class AddressService {
    * @param reqData - GenerateP2SHAddressDto
    * @returns Address interface
    */
-  public async generateP2SHAddress(reqData: GenerateP2SHAddressDto): Promise<string | Address> {
+  public async generateP2SHAddress(reqData: GenerateP2SHAddressDto): Promise<Address> {
     if (reqData.publicKeys.length != reqData.m) {
-      return "m must be the same value as the number of provided keys"
+      throw new HttpException(400, 'm must be the same value as the number of provided keys');
     }
     if (reqData.n > reqData.m) {
-      return "n must be less than or equal to m"
+      throw new HttpException(400, 'n must be less than or equal to m');
     }
     const publicKeysBuffer: Buffer[] = reqData.publicKeys.map(hex => Buffer.from(hex, 'hex'));
     // P2SH, pay-to-multisig (n-of-m) address
