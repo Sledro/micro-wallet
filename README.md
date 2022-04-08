@@ -62,8 +62,8 @@ curl --location --request POST "http://127.0.0.1:3000/address/segwit" \
 curl --location --request POST "http://127.0.0.1:3000/address/multisig" \
 --header "Content-Type: application/json" \
 --data-raw "{
-    \"m\": 2,
-    \"n\": 8,
+    \"n\": 2,
+    \"m\": 3,
     \"publicKeys\": [
         \"026477115981fe981a6918a6297d9803c4dc04f328f22041bedff886bbc2962e01\",
         \"02c96db2302d19b43d4c69368babace7854cc84eb9e061cde51cfa77ca4a22b8b9\",
