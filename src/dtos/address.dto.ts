@@ -1,4 +1,4 @@
-import { IsNumber, IsString, IsPositive, IsNotEmpty, IsHexadecimal, Matches, Length, IsArray, Min } from 'class-validator';
+import { IsNumber, IsString, IsPositive, IsNotEmpty, IsHexadecimal, Matches, Length, IsArray } from 'class-validator';
 
 // Request used to create HD SegWit Address
 export class GenerateHDSegWitAddressDto {
@@ -32,7 +32,6 @@ export class GenerateP2SHAddressDto {
 
   @IsNotEmpty()
   @IsArray()
-  @IsString({ each: true })
   @IsHexadecimal({ each: true })
   // Addresses array of bitcoin addresses
   public publicKeys: Array<string>;
