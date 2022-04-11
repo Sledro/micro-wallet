@@ -26,6 +26,30 @@ Production server should use SSL to encrypt API data and prevent network sniffin
 ---
 ## 🚀 Quick Start
 
+Create environment 3 file in project root:
+
+.env.development.local
+.env.development.local
+.env.development.local
+
+insert the following:
+
+```
+# PORT
+PORT = 3000
+
+# TOKEN
+SECRET_KEY = secretKey
+
+# LOG
+LOG_FORMAT = dev
+LOG_DIR = ../logs
+
+# CORS
+ORIGIN = *
+CREDENTIALS = true
+```
+
 ### 1. Install dependencies
 
 ```bash
