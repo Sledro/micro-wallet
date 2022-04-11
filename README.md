@@ -26,7 +26,7 @@ Production server should use SSL to encrypt API data and prevent network sniffin
 ---
 ## 🚀 Quick Start
 
-Create environment 3 file in project root:
+Create 3 environment files in the project root:
 
 .env.development.local
 .env.development.local
